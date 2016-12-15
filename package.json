@@ -1,10 +1,10 @@
 {
-  "name": "qruri",
+  "name": "@pgaubatz/qruri",
   "version": "0.0.3",
   "description": "NodeJS port of Kang Seonghoon's qr.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shesek/qruri"
+    "url": "https://github.com/pgaubatz/qruri"
   },
   "keywords": [
     "qr",
