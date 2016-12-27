@@ -22,6 +22,8 @@ Install with `npm install qruri` and call
   4 (white modules). the specficiation mandates the margin no less than 4
   modules, so it is better not to alter this value unless you know what
   you're doing.
+- transparent: a boolean. when 'true' the background will be transparent
+  instead of white.
 
 ### License
 Released under qr.js's original license:

@@ -664,6 +664,7 @@ module.exports = function(data, options) {
   var ecclevel = ECCLEVELS[(options.ecclevel || 'L').toUpperCase()];
   var mode = options.mode ? MODES[options.mode.toLowerCase()] : -1;
   var mask = 'mask' in options ? options.mask : -1;
+  var transparent = options.transparent || false;
 
   if (mode < 0) {
     if (typeof data === 'string') {
@@ -712,8 +713,10 @@ module.exports = function(data, options) {
   context = canvas.getContext('2d');
   if (!context) throw 'canvas support is needed for PNG output';
 
-  context.fillStyle = '#fff';
-  context.fillRect(0, 0, size, size);
+  if (!transparent) {
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, size, size);
+  }
   context.fillStyle = '#000';
   for (var i = 0; i < n; ++i) {
     for (var j = 0; j < n; ++j) {
