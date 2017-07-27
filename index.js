@@ -658,7 +658,7 @@ var MODES = {'numeric': MODE_NUMERIC, 'alphanumeric': MODE_ALPHANUMERIC,
 var ECCLEVELS = {'L': ECCLEVEL_L, 'M': ECCLEVEL_M, 'Q': ECCLEVEL_Q,
   'H': ECCLEVEL_H};
 
-module.exports = function(data, options) {
+function renderToCanvas(data, options) {
   options = options || {};
   var ver = options.version || -1;
   var ecclevel = ECCLEVELS[(options.ecclevel || 'L').toUpperCase()];
@@ -727,5 +727,10 @@ module.exports = function(data, options) {
       }
     }
   }
-  return canvas.toDataURL();
+  return canvas;
 }
+
+module.exports = function(data, options) {
+	return renderToCanvas(data, options).toDataURL();
+}
+module.exports.render = renderToCanvas;
